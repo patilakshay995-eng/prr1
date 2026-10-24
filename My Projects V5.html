@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///C:/Users/Aksha/Downloads/My%20Projects%20(8).html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Projects</title>
+<link href="./My Projects V5_files/css2" rel="stylesheet">
+<style>
+:root{--bg:#eef0f4;--surface:#fff;--ink:#1b2140;--mute:#5d6584;--line:#d5d9e4;--accent:#2d3a8c;--accent-ink:#fff;--warn:#c2410c;--ok:#1f7a4d;--hi:#e0a21b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12152b;--surface:#1b2040;--ink:#eceefb;--mute:#9aa2c8;--line:#2c3260;--accent:#8c9bff;--accent-ink:#12152b;--warn:#fb923c;--ok:#4ade80;--hi:#f2b84b}}
+:root[data-theme="dark"]{--bg:#12152b;--surface:#1b2040;--ink:#eceefb;--mute:#9aa2c8;--line:#2c3260;--accent:#8c9bff;--accent-ink:#12152b;--warn:#fb923c;--ok:#4ade80;--hi:#f2b84b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Bricolage Grotesque",system-ui,sans-serif}
+main{max-width:1200px;margin:0 auto;padding:24px 16px 48px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:20px}
+h1{font-size:2rem;font-weight:800;margin:0;letter-spacing:-.02em}
+button,select,input,textarea{font:inherit;color:inherit}
+.btn{background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:9px 16px;font-weight:600;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.stat b{display:block;font-size:1.8rem;font-weight:800;line-height:1.1}
+.stat span{color:var(--mute);font-size:.9rem}
+.stat.late b{color:var(--warn)}
+.overall{margin-bottom:24px}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);transition:width .3s}
+.overall p{margin:6px 0 0;color:var(--mute);font-size:.9rem}
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;align-items:start}
+.col h2{font-size:1rem;margin:0 0 10px;display:flex;justify-content:space-between;font-weight:600}
+.col h2 em{font-style:normal;color:var(--mute)}
+.card{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--line);border-radius:8px;padding:12px;margin-bottom:10px}
+.card.p-high{border-left-color:var(--warn)}.card.p-med{border-left-color:var(--hi)}.card.p-low{border-left-color:var(--ok)}
+.card h3{margin:0 0 2px;font-size:1.05rem}
+.card p{margin:0 0 8px;color:var(--mute);font-size:.9rem}
+.due{font-size:.85rem;color:var(--mute)}.due.over{color:var(--warn);font-weight:600}
+.card input[type=range]{width:100%;accent-color:var(--accent)}
+.row{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:6px}
+.row select{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:3px 6px}
+.lnk{background:none;border:0;color:var(--accent);cursor:pointer;padding:2px 4px;text-decoration:underline}
+.empty{color:var(--mute);font-size:.9rem;padding:12px;border:1px dashed var(--line);border-radius:8px}
+dialog{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);width:min(440px,92vw);padding:20px}
+dialog::backdrop{background:rgba(10,12,30,.5)}
+label{display:block;margin-top:12px;font-weight:600;font-size:.9rem}
+dialog input,dialog select,dialog textarea{width:100%;margin-top:4px;padding:8px;background:var(--bg);border:1px solid var(--line);border-radius:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+#kpi{margin-bottom:36px}
+.ktool,.kform{display:flex;flex-wrap:wrap;gap:8px;align-items:end;margin-bottom:14px}
+.ktool{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:8px}
+.ktool select,.kform input{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:7px 8px}
+.ktool input[type=color]{width:40px;height:34px;padding:2px}
+.kform label{margin:0;font-size:.85rem;font-weight:600}
+.kform input{display:block;width:120px;margin-top:3px}
+.msec{margin-bottom:22px}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.kcol{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.kh{margin:0 0 10px;padding:2px 4px;border-radius:4px;outline:none;font-size:1.15rem}
+.kh.on,.kh:focus{box-shadow:0 0 0 2px var(--hi)}
+.krow{margin-bottom:10px}
+.kl{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:3px}
+.bar i.under{background:var(--hi)}
+.kmonth{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:18px}
+.kent table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:8px}
+.kent td,.kent th{padding:4px 6px;border-bottom:1px solid var(--line);text-align:left}
+:root:root:root{--bg:#04070f;--surface:rgba(9,22,44,.72);--ink:#d6f3ff;--mute:#82a6c2;--line:rgba(0,229,255,.28);--accent:#00e5ff;--accent-ink:#021018;--warn:#ff3d71;--ok:#39ff9c;--hi:#ffb300;color-scheme:dark}
+body{font-family:Rajdhani,system-ui,sans-serif;font-size:17px;background:radial-gradient(1100px 600px at 85% -10%,rgba(124,58,237,.25),transparent 60%),radial-gradient(900px 500px at 0% 5%,rgba(0,229,255,.16),transparent 60%),linear-gradient(rgba(0,229,255,.045) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(0,229,255,.045) 1px,transparent 1px) 0 0/40px 40px,#04070f;background-attachment:fixed}
+body::before{content:'';position:fixed;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,#00e5ff,transparent);opacity:.45;pointer-events:none;z-index:5;animation:scan 7s linear infinite}
+@keyframes scan{to{transform:translateY(100vh)}}
+h1{font-family:Orbitron,sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:1.7rem;text-shadow:0 0 14px rgba(0,229,255,.7)}
+#kpi>h2{font-family:Orbitron,sans-serif;letter-spacing:.1em;text-transform:uppercase;text-shadow:0 0 10px rgba(0,229,255,.5)}
+.kh{font-family:Rajdhani,sans-serif;letter-spacing:.05em}
+.stat,.kcol,.kmonth,.tile,.pan,.gauge,.ktool{position:relative;background:var(--surface);backdrop-filter:blur(5px);border:1px solid var(--line);border-radius:2px;box-shadow:0 0 18px rgba(0,229,255,.08),inset 0 0 26px rgba(0,229,255,.05)}
+.stat::before,.kcol::before,.kmonth::before,.tile::before,.pan::before,.gauge::before{content:'';position:absolute;top:-1px;left:-1px;width:12px;height:12px;border-top:2px solid var(--accent);border-left:2px solid var(--accent)}
+.stat::after,.kcol::after,.kmonth::after,.tile::after,.pan::after,.gauge::after{content:'';position:absolute;bottom:-1px;right:-1px;width:12px;height:12px;border-bottom:2px solid var(--accent);border-right:2px solid var(--accent)}
+.card{background:var(--surface);border-radius:2px;box-shadow:0 0 14px rgba(0,229,255,.06)}
+.stat b{font-family:Orbitron,sans-serif;text-shadow:0 0 10px rgba(0,229,255,.6)}
+.btn{background:linear-gradient(135deg,#00e5ff,#2d6bff);border-radius:2px;text-transform:uppercase;letter-spacing:.08em;box-shadow:0 0 14px rgba(0,229,255,.45)}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent);box-shadow:none}
+.bar{background:rgba(0,229,255,.1);border-radius:0}
+.bar i{background:linear-gradient(90deg,#2d6bff,#00e5ff);box-shadow:0 0 10px #00e5ff;border-radius:0}
+.bar i.under{background:linear-gradient(90deg,#ff7a00,#ffb300);box-shadow:0 0 10px #ffb300}
+dialog{border-radius:2px;box-shadow:0 0 40px rgba(0,229,255,.3)}
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:14px}
+.gauge{padding:12px 8px;text-align:center}
+.gauge svg{width:100%;max-width:140px}
+.gauge b{display:block;letter-spacing:.06em}
+.gauge small{color:var(--mute)}
+.gt{fill:none;stroke:rgba(0,229,255,.12);stroke-width:10}
+.gv{fill:none;stroke-width:10;stroke-linecap:round;filter:drop-shadow(0 0 5px rgba(0,229,255,.8))}
+.gi{fill:none;stroke:var(--line);stroke-dasharray:2 5;transform-box:fill-box;transform-origin:center;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.gn{font:700 21px Orbitron,sans-serif;fill:var(--ink)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:14px}
+.tile{padding:10px 14px}
+.tile small{color:var(--mute);display:block}
+.tile b{font:700 1.5rem Orbitron,sans-serif;display:block}
+.tile .up{color:var(--ok)}.tile .dn{color:var(--warn)}
+.charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px;margin-bottom:22px}
+.pan{padding:12px 14px}
+.pan h4{margin:0;font:700 .95rem Orbitron,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.pan small{color:var(--mute);display:block;margin-bottom:6px}
+.pan svg{width:100%;height:auto;display:block}
+.gl{stroke:rgba(0,229,255,.12)}
+.ax{fill:var(--mute);font:11px Rajdhani,sans-serif}
+.ln{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.4s ease-out forwards}
+.selcard{padding:16px 18px;margin-bottom:22px}
+.segs{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;margin-bottom:12px}
+.segs>div{display:flex;gap:0;border:1px solid var(--line)}
+.seg{background:transparent;border:0;border-right:1px solid var(--line);color:var(--mute);padding:7px 14px;cursor:pointer;font-weight:600;letter-spacing:.05em}
+.seg:last-child{border-right:0}
+.seg.on{background:var(--accent);color:var(--accent-ink);box-shadow:0 0 12px rgba(0,229,255,.6)}
+.stile{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:8px 0 12px}
+.stile div{border:1px solid var(--line);padding:6px 10px}
+.stile small{display:block;color:var(--mute)}
+.stile b{font:700 1.2rem Orbitron,sans-serif}
+.stile .up{color:var(--ok)}.stile .dn{color:var(--warn)}
+.selcard table{width:100%;border-collapse:collapse;font-size:.95rem;margin-top:10px}
+.selcard td,.selcard th{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left}
+@keyframes draw{to{stroke-dashoffset:0}}
+/* Executive theme */
+:root:root:root{--bg:#f3f5f9;--surface:#fff;--ink:#16233b;--mute:#5f6b7f;--line:#dde2ea;--accent:#1f4e8c;--accent-ink:#fff;--warn:#b93a2e;--ok:#1e7f4f;--hi:#c98a16;color-scheme:light}
+body{font-family:Inter,'Segoe UI',system-ui,sans-serif;font-size:15px;background:var(--bg);background-attachment:scroll}
+body::before{display:none}
+h1{font-family:inherit;font-weight:700;text-transform:none;letter-spacing:-.01em;font-size:1.6rem;text-shadow:none}
+h1::after{content:'';display:block;width:48px;height:3px;background:var(--accent);margin-top:6px}
+#kpi>h2,.sec{font-family:inherit;text-transform:none;letter-spacing:0;text-shadow:none;font-size:1.1rem!important;font-weight:700;margin:0 0 10px!important;padding-bottom:6px;border-bottom:1px solid var(--line)}
+#kpi>h2{margin-top:8px!important}
+.stat,.kcol,.kmonth,.tile,.pan,.gauge,.ktool{background:var(--surface);backdrop-filter:none;border:1px solid var(--line);border-radius:8px;box-shadow:0 1px 3px rgba(22,35,59,.07)}
+.stat::before,.kcol::before,.kmonth::before,.tile::before,.pan::before,.gauge::before,.stat::after,.kcol::after,.kmonth::after,.tile::after,.pan::after,.gauge::after{display:none}
+.card{background:var(--surface);border-radius:6px;box-shadow:0 1px 2px rgba(22,35,59,.06)}
+.stat b,.tile b,.stile b{font-family:inherit;font-weight:700;text-shadow:none}
+.pan h4{font:600 1rem Inter,sans-serif;letter-spacing:0;text-transform:none}
+.gn{font:700 20px Inter,sans-serif}
+.kh{letter-spacing:0}
+.btn{background:var(--accent);border-radius:6px;text-transform:none;letter-spacing:0;box-shadow:none}
+.btn.ghost{background:#fff;color:var(--accent);border:1px solid var(--line)}
+.bar{background:#e8ecf3;border-radius:4px}
+.bar i{background:var(--accent);box-shadow:none;border-radius:4px}
+.bar i.under{background:var(--hi);box-shadow:none}
+.gt{stroke:#e8ecf3}
+.gv{filter:none}
+.gi{display:none}
+.gl{stroke:#e6eaf0}
+svg path[filter],svg rect[filter]{filter:none}
+.segs>div{border-radius:6px;overflow:hidden;background:#fff}
+.seg{letter-spacing:0}
+.seg.on{box-shadow:none}
+.stile div{border-radius:6px;background:var(--bg)}
+dialog{border-radius:10px;box-shadow:0 12px 40px rgba(22,35,59,.25)}
+.ln{animation-duration:.8s}
+/* Colour pass */
+:root:root:root{--accent:#2563eb;--ok:#10b981;--warn:#ef4444;--hi:#f59e0b}
+body{background:linear-gradient(180deg,#dbe7fb 0,#f3f5f9 380px) no-repeat,var(--bg)}
+header{background:linear-gradient(120deg,#0f2f66,#1f5fbf 60%,#0d9488);padding:18px 22px;border-radius:12px;box-shadow:0 8px 22px rgba(31,95,191,.28)}
+header h1{color:#fff}
+header h1::after{background:#fbbf24}
+header .btn{background:#fff;color:#0f2f66}
+header .btn.ghost{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.55)}
+#kpi>h2::before,.sec::before{content:'';display:inline-block;width:6px;height:1.1em;background:linear-gradient(#2563eb,#0d9488);border-radius:3px;margin-right:10px;vertical-align:-.15em}
+#kpi>h2,.sec{color:#0f2f66;border-bottom:2px solid #d3e0f7}
+.btn{background:linear-gradient(135deg,#1d4ed8,#2563eb)}
+.bar i{background:linear-gradient(90deg,#2563eb,#0ea5e9)}
+.bar i.under{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.stats .stat:nth-child(1){--c:#2563eb}.stats .stat:nth-child(2){--c:#0d9488}.stats .stat:nth-child(3){--c:#ef4444}.stats .stat:nth-child(4){--c:#f59e0b}.stats .stat:nth-child(5){--c:#10b981}
+.stats .stat{border-top:4px solid var(--c);background:linear-gradient(180deg,color-mix(in srgb,var(--c) 10%,#fff),#fff)}
+.stats .stat b,.stats .stat.late b{color:var(--c)}
+.col h2{padding:8px 12px;border-radius:6px;color:#fff}
+.col h2 em{color:rgba(255,255,255,.85)}
+.board .col:nth-child(1) h2{background:#64748b}.board .col:nth-child(2) h2{background:#2563eb}.board .col:nth-child(3) h2{background:#ef4444}.board .col:nth-child(4) h2{background:#10b981}
+.ktool{background:#eaf1fe}
+.kmonth{background:linear-gradient(135deg,#ecfdf5,#eff6ff);border-left:4px solid #10b981}
+.gauges .gauge:nth-child(1){--c:#2563eb}.gauges .gauge:nth-child(2){--c:#10b981}.gauges .gauge:nth-child(3){--c:#f59e0b}.gauges .gauge:nth-child(4){--c:#8b5cf6}
+.gauge{border-top:4px solid var(--c);background:linear-gradient(180deg,color-mix(in srgb,var(--c) 9%,#fff),#fff)}
+.gn{fill:#0f2f66}
+.tiles .tile:nth-child(1){--c:#2563eb}.tiles .tile:nth-child(2){--c:#8b5cf6}.tiles .tile:nth-child(3){--c:#f59e0b}.tiles .tile:nth-child(4){--c:#10b981}.tiles .tile:nth-child(5){--c:#0d9488}
+.tiles .tile{border-left:4px solid var(--c);background:linear-gradient(135deg,#fff 35%,color-mix(in srgb,var(--c) 14%,#fff))}
+.tiles .tile b:not(.up):not(.dn){color:var(--c)}
+.charts .pan:nth-child(1){--c:#2563eb}.charts .pan:nth-child(2){--c:#10b981}.charts .pan:nth-child(3){--c:#0ea5e9}.charts .pan:nth-child(4){--c:#ef4444}.charts .pan:nth-child(5){--c:#8b5cf6}
+.pan{border-top:4px solid var(--c)}
+.pan h4{color:var(--c)}
+.selcard{border-top:4px solid #2563eb}
+.seg{color:#334155}
+.seg.on{background:linear-gradient(135deg,#1d4ed8,#0ea5e9);color:#fff}
+.stile div:nth-child(1){background:#eff6ff}.stile div:nth-child(2){background:#f5f3ff}.stile div:nth-child(3){background:#ecfdf5}.stile div:nth-child(4){background:#fff7ed}.stile div:nth-child(5){background:#f0fdfa}
+.selcard th{background:#eaf1fe;color:#0f2f66}
+.selcard tr:nth-child(even) td{background:#f8fafd}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.ln{stroke-dashoffset:0}}
+</style>
+<style>
+body.locked #add,body.locked .ktool,body.locked .kform,body.locked #khelp,body.locked [data-edit],body.locked [data-del],body.locked [data-kdel]{display:none!important}
+body.locked [data-pct],body.locked [data-st]{opacity:.7;cursor:not-allowed}
+</style>
+</head>
+<body class="">
+<main>
+<header>
+  <h1>Operations Performance Dashboard</h1>
+  <div style="display:flex;gap:8px">
+    <button class="btn ghost" id="lockbtn" type="button">🔓 Lock (read-only)</button>
+    <button class="btn ghost" id="export">Export backup</button>
+    <button class="btn" id="add">Add project</button>
+  </div>
+</header>
+<section id="kpi">
+<h2 style="font-size:1.5rem;margin:0 0 4px">Plant KPIs</h2>
+<p class="due" id="khelp" style="margin:0 0 12px">Click any header to rename it, then use the toolbar to format it. Weekly and monthly figures are calculated from your daily entries.</p>
+<div class="ktool" role="toolbar" aria-label="Header formatting">
+<select id="fs" aria-label="Header size"><option value="0.95rem">Small</option><option value="1.15rem" selected="">Medium</option><option value="1.4rem">Large</option></select>
+<input type="color" id="fc" value="#2d3a8c" aria-label="Header colour">
+<button class="btn ghost" id="fb" type="button"><b>B</b></button>
+<button class="btn ghost" id="fi" type="button"><i>I</i></button>
+<select id="fa" aria-label="Alignment"><option value="left">Left</option><option value="center">Centre</option><option value="right">Right</option></select>
+<button class="btn ghost" id="fr" type="button">Reset format</button>
+</div>
+<form class="kform" id="kfm">
+<label>Date<input type="date" id="kdate" required=""></label>
+<label>Process loss (%)<input type="number" step="0.01" id="kloss"></label>
+<label>Cost saving (₹)<input type="number" step="1" id="kcost"></label>
+<label>OEE (%)<input type="number" step="0.1" id="koee"></label>
+<label>Production (t)<input type="number" step="0.01" id="kprod"></label>
+<label>Daily target (t)<input type="number" step="0.01" id="kdtg"></label>
+<button class="btn" type="submit">Save daily entry</button>
+<label>Monthly target (t)<input type="number" id="ktgt" value="220"></label>
+</form>
+<div class="kmonth" id="kmonth"><b>This month: 606.0 t of 5500 t target (11%)</b><div class="bar" style="margin:8px 0 4px"><i class="under" style="width:11.01818181818182%"></i></div><span class="due">4894.0 t remaining</span></div>
+<div id="kviz"><div class="gauges"><div class="gauge"><svg viewBox="0 0 130 130"><circle cx="65" cy="65" r="52" class="gt"></circle><circle cx="65" cy="65" r="52" class="gv" style="stroke:#2563eb;stroke-dasharray:141.58110892178004 326.7256359733385" transform="rotate(-90 65 65)"></circle><circle cx="65" cy="65" r="38" class="gi"></circle><text x="65" y="71" text-anchor="middle" class="gn">43.3%</text></svg><b>OEE, 7-day avg</b><small>Benchmark 85%</small></div><div class="gauge"><svg viewBox="0 0 130 130"><circle cx="65" cy="65" r="52" class="gt"></circle><circle cx="65" cy="65" r="52" class="gv" style="stroke:#10b981;stroke-dasharray:35.999224618153306 326.7256359733385" transform="rotate(-90 65 65)"></circle><circle cx="65" cy="65" r="38" class="gi"></circle><text x="65" y="71" text-anchor="middle" class="gn">11%</text></svg><b>Target attainment</b><small>606.0 of 5500 t</small></div><div class="gauge"><svg viewBox="0 0 130 130"><circle cx="65" cy="65" r="52" class="gt"></circle><circle cx="65" cy="65" r="52" class="gv" style="stroke:#f59e0b;stroke-dasharray:65.64564489192661 326.7256359733385" transform="rotate(-90 65 65)"></circle><circle cx="65" cy="65" r="38" class="gi"></circle><text x="65" y="71" text-anchor="middle" class="gn">20%</text></svg><b>Month-end forecast</b><small>1105 t projected</small></div><div class="gauge"><svg viewBox="0 0 130 130"><circle cx="65" cy="65" r="52" class="gt"></circle><circle cx="65" cy="65" r="52" class="gv" style="stroke:#8b5cf6;stroke-dasharray:321.60693434308956 326.7256359733385" transform="rotate(-90 65 65)"></circle><circle cx="65" cy="65" r="38" class="gi"></circle><text x="65" y="71" text-anchor="middle" class="gn">98.4%</text></svg><b>Process yield</b><small>Loss 1.6%</small></div></div><div class="tiles"><div class="tile"><small>Avg daily output, 7 days</small><b>202.0 t</b><span class="">Need 8+ days for trend</span></div><div class="tile"><small>Cost saved this month</small><b>₹4,565</b></div><div class="tile"><small>Plan status</small><b class="dn">Behind plan</b></div></div><div class="charts"><div class="pan"><h4>Production vs daily target</h4><small>Bars: output in tons. Dashed: daily target.</small><svg viewBox="0 0 600 210" role="img"><defs><filter id="gwa"><fegaussianblur stdDeviation="2.5" result="b"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter><lineargradient id="gfa0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2563eb" stop-opacity=".45"></stop><stop offset="1" stop-color="#2563eb" stop-opacity="0"></stop></lineargradient><lineargradient id="gfa1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f59e0b" stop-opacity=".45"></stop><stop offset="1" stop-color="#f59e0b" stop-opacity="0"></stop></lineargradient></defs><line x1="46" x2="588" y1="184" y2="184" class="gl"></line><text x="40" y="188" text-anchor="end" class="ax">0</text><line x1="46" x2="588" y1="141.5" y2="141.5" class="gl"></line><text x="40" y="145.5" text-anchor="end" class="ax">61.1</text><line x1="46" x2="588" y1="99" y2="99" class="gl"></line><text x="40" y="103" text-anchor="end" class="ax">122.1</text><line x1="46" x2="588" y1="56.5" y2="56.5" class="gl"></line><text x="40" y="60.5" text-anchor="end" class="ax">183.2</text><line x1="46" x2="588" y1="14" y2="14" class="gl"></line><text x="40" y="18" text-anchor="end" class="ax">244.2</text><text x="136.33333333333331" y="202" text-anchor="middle" class="ax">1 Oct</text><text x="317" y="202" text-anchor="middle" class="ax">2 Oct</text><text x="497.66666666666663" y="202" text-anchor="middle" class="ax">3 Oct</text><rect x="82.13333333333333" y="45.46601146601148" width="108.39999999999999" height="138.53398853398852" fill="url(#gfa0)" stroke="#2563eb" filter="url(#gwa)"></rect><rect x="262.8" y="55.21212121212121" width="108.39999999999999" height="128.78787878787878" fill="url(#gfa0)" stroke="#2563eb" filter="url(#gwa)"></rect><rect x="443.46666666666664" y="29.45454545454546" width="108.39999999999999" height="154.54545454545453" fill="url(#gfa0)" stroke="#2563eb" filter="url(#gwa)"></rect><path d="M136.3 30.8 L317.0 30.8 L497.7 30.8 " fill="none" stroke="#f59e0b" stroke-width="2" filter="url(#gwa)" stroke-dasharray="5 4"></path></svg></div><div class="pan"><h4>Month burn-up</h4><small>Green: cumulative tons. Dashed: ideal pace to 5500 t.</small><svg viewBox="0 0 600 210" role="img"><defs><filter id="gwb"><fegaussianblur stdDeviation="2.5" result="b"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter><lineargradient id="gfb0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f59e0b" stop-opacity=".45"></stop><stop offset="1" stop-color="#f59e0b" stop-opacity="0"></stop></lineargradient><lineargradient id="gfb1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#10b981" stop-opacity=".45"></stop><stop offset="1" stop-color="#10b981" stop-opacity="0"></stop></lineargradient></defs><line x1="46" x2="588" y1="184" y2="184" class="gl"></line><text x="40" y="188" text-anchor="end" class="ax">0</text><line x1="46" x2="588" y1="141.5" y2="141.5" class="gl"></line><text x="40" y="145.5" text-anchor="end" class="ax">1512.5</text><line x1="46" x2="588" y1="99" y2="99" class="gl"></line><text x="40" y="103" text-anchor="end" class="ax">3025</text><line x1="46" x2="588" y1="56.5" y2="56.5" class="gl"></line><text x="40" y="60.5" text-anchor="end" class="ax">4537.5</text><line x1="46" x2="588" y1="14" y2="14" class="gl"></line><text x="40" y="18" text-anchor="end" class="ax">6050</text><text x="46" y="202" text-anchor="middle" class="ax">1</text><text x="136.33333333333331" y="202" text-anchor="middle" class="ax">6</text><text x="226.66666666666666" y="202" text-anchor="middle" class="ax">11</text><text x="317" y="202" text-anchor="middle" class="ax">16</text><text x="407.3333333333333" y="202" text-anchor="middle" class="ax">21</text><text x="497.6666666666667" y="202" text-anchor="middle" class="ax">26</text><text x="588" y="202" text-anchor="middle" class="ax">31</text><path d="M46.0 179.0 L64.1 174.0 L82.1 169.0 L100.2 164.1 L118.3 159.1 L136.3 154.1 L154.4 149.1 L172.5 144.1 L190.5 139.1 L208.6 134.1 L226.7 129.2 L244.7 124.2 L262.8 119.2 L280.9 114.2 L298.9 109.2 L317.0 104.2 L335.1 99.2 L353.1 94.3 L371.2 89.3 L389.3 84.3 L407.3 79.3 L425.4 74.3 L443.5 69.3 L461.5 64.4 L479.6 59.4 L497.7 54.4 L515.7 49.4 L533.8 44.4 L551.9 39.4 L569.9 34.4 L588.0 29.5 " fill="none" stroke="#f59e0b" stroke-width="2" filter="url(#gwb)" stroke-dasharray="5 4"></path><path d="M46.0 178.4 L64.1 173.2 L82.1 167.0 L82.13333333333333 184 L46 184Z" fill="url(#gfb1)"></path><path d="M46.0 178.4 L64.1 173.2 L82.1 167.0 " fill="none" stroke="#10b981" stroke-width="2" filter="url(#gwb)" class="ln" pathLength="1"></path><circle cx="46" cy="178.40826446280994" r="2.6" fill="#10b981"></circle><circle cx="64.06666666666666" cy="173.20991735537189" r="2.6" fill="#10b981"></circle><circle cx="82.13333333333333" cy="166.97190082644627" r="2.6" fill="#10b981"></circle></svg></div><div class="pan"><h4>OEE trend</h4><small>Dashed: 85% world-class benchmark.</small><svg viewBox="0 0 600 210" role="img"><defs><filter id="gwc"><fegaussianblur stdDeviation="2.5" result="b"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter><lineargradient id="gfc0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2563eb" stop-opacity=".45"></stop><stop offset="1" stop-color="#2563eb" stop-opacity="0"></stop></lineargradient><lineargradient id="gfc1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ec4899" stop-opacity=".45"></stop><stop offset="1" stop-color="#ec4899" stop-opacity="0"></stop></lineargradient></defs><line x1="46" x2="588" y1="184" y2="184" class="gl"></line><text x="40" y="188" text-anchor="end" class="ax">0</text><line x1="46" x2="588" y1="141.5" y2="141.5" class="gl"></line><text x="40" y="145.5" text-anchor="end" class="ax">23.4</text><line x1="46" x2="588" y1="99" y2="99" class="gl"></line><text x="40" y="103" text-anchor="end" class="ax">46.8</text><line x1="46" x2="588" y1="56.5" y2="56.5" class="gl"></line><text x="40" y="60.5" text-anchor="end" class="ax">70.1</text><line x1="46" x2="588" y1="14" y2="14" class="gl"></line><text x="40" y="18" text-anchor="end" class="ax">93.5</text><text x="46" y="202" text-anchor="middle" class="ax">1 Oct</text><text x="317" y="202" text-anchor="middle" class="ax">2 Oct</text><text x="588" y="202" text-anchor="middle" class="ax">3 Oct</text><path d="M46.0 102.2 L317.0 91.3 L588.0 122.2 L588 184 L46 184Z" fill="url(#gfc0)"></path><path d="M46.0 102.2 L317.0 91.3 L588.0 122.2 " fill="none" stroke="#2563eb" stroke-width="2" filter="url(#gwc)" class="ln" pathLength="1"></path><circle cx="46" cy="102.1818181818182" r="2.6" fill="#2563eb"></circle><circle cx="317" cy="91.27272727272728" r="2.6" fill="#2563eb"></circle><circle cx="588" cy="122.1818181818182" r="2.6" fill="#2563eb"></circle><path d="M46.0 29.5 L317.0 29.5 L588.0 29.5 " fill="none" stroke="#ec4899" stroke-width="2" filter="url(#gwc)" stroke-dasharray="5 4"></path></svg></div><div class="pan"><h4>Process loss</h4><small>Dashed: 3-day moving average. Lower is better.</small><svg viewBox="0 0 600 210" role="img"><defs><filter id="gwd"><fegaussianblur stdDeviation="2.5" result="b"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter><lineargradient id="gfd0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ef4444" stop-opacity=".45"></stop><stop offset="1" stop-color="#ef4444" stop-opacity="0"></stop></lineargradient><lineargradient id="gfd1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f59e0b" stop-opacity=".45"></stop><stop offset="1" stop-color="#f59e0b" stop-opacity="0"></stop></lineargradient></defs><line x1="46" x2="588" y1="184" y2="184" class="gl"></line><text x="40" y="188" text-anchor="end" class="ax">0</text><line x1="46" x2="588" y1="141.5" y2="141.5" class="gl"></line><text x="40" y="145.5" text-anchor="end" class="ax">0.6</text><line x1="46" x2="588" y1="99" y2="99" class="gl"></line><text x="40" y="103" text-anchor="end" class="ax">1.1</text><line x1="46" x2="588" y1="56.5" y2="56.5" class="gl"></line><text x="40" y="60.5" text-anchor="end" class="ax">1.7</text><line x1="46" x2="588" y1="14" y2="14" class="gl"></line><text x="40" y="18" text-anchor="end" class="ax">2.2</text><text x="46" y="202" text-anchor="middle" class="ax">1 Oct</text><text x="317" y="202" text-anchor="middle" class="ax">2 Oct</text><text x="588" y="202" text-anchor="middle" class="ax">3 Oct</text><path d="M46.0 91.3 L317.0 68.1 L588.0 29.5 L588 184 L46 184Z" fill="url(#gfd0)"></path><path d="M46.0 91.3 L317.0 68.1 L588.0 29.5 " fill="none" stroke="#ef4444" stroke-width="2" filter="url(#gwd)" class="ln" pathLength="1"></path><circle cx="46" cy="91.27272727272728" r="2.6" fill="#ef4444"></circle><circle cx="317" cy="68.0909090909091" r="2.6" fill="#ef4444"></circle><circle cx="588" cy="29.45454545454546" r="2.6" fill="#ef4444"></circle><path d="M46.0 91.3 L317.0 79.7 L588.0 62.9 " fill="none" stroke="#f59e0b" stroke-width="2" filter="url(#gwd)" stroke-dasharray="5 4"></path></svg></div><div class="pan"><h4>Cumulative cost saving</h4><small>Running total in rupees (k = thousand, L = lakh).</small><svg viewBox="0 0 600 210" role="img"><defs><filter id="gwe"><fegaussianblur stdDeviation="2.5" result="b"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter><lineargradient id="gfe0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8b5cf6" stop-opacity=".45"></stop><stop offset="1" stop-color="#8b5cf6" stop-opacity="0"></stop></lineargradient></defs><line x1="46" x2="588" y1="184" y2="184" class="gl"></line><text x="40" y="188" text-anchor="end" class="ax">0</text><line x1="46" x2="588" y1="141.5" y2="141.5" class="gl"></line><text x="40" y="145.5" text-anchor="end" class="ax">1k</text><line x1="46" x2="588" y1="99" y2="99" class="gl"></line><text x="40" y="103" text-anchor="end" class="ax">3k</text><line x1="46" x2="588" y1="56.5" y2="56.5" class="gl"></line><text x="40" y="60.5" text-anchor="end" class="ax">4k</text><line x1="46" x2="588" y1="14" y2="14" class="gl"></line><text x="40" y="18" text-anchor="end" class="ax">5k</text><text x="46" y="202" text-anchor="middle" class="ax">1 Oct</text><text x="317" y="202" text-anchor="middle" class="ax">2 Oct</text><text x="588" y="202" text-anchor="middle" class="ax">3 Oct</text><path d="M46.0 108.8 L317.0 29.5 L588.0 29.5 L588 184 L46 184Z" fill="url(#gfe0)"></path><path d="M46.0 108.8 L317.0 29.5 L588.0 29.5 " fill="none" stroke="#8b5cf6" stroke-width="2" filter="url(#gwe)" class="ln" pathLength="1"></path><circle cx="46" cy="108.77546549835706" r="2.6" fill="#8b5cf6"></circle><circle cx="317" cy="29.45454545454546" r="2.6" fill="#8b5cf6"></circle><circle cx="588" cy="29.45454545454546" r="2.6" fill="#8b5cf6"></circle></svg></div></div></div>
+<div id="kcols"><div class="kcol selcard"><div class="segs"><div><button type="button" class="seg on" data-m="loss">Process loss</button><button type="button" class="seg" data-m="cost">Cost saving</button><button type="button" class="seg" data-m="oee">OEE</button><button type="button" class="seg" data-m="prod">Production</button><button type="button" class="seg" data-m="tgt">Daily target</button></div><div><button type="button" class="seg on" data-p="d">Daily</button><button type="button" class="seg" data-p="w">Weekly</button><button type="button" class="seg" data-p="m">Monthly</button></div></div><h3 class="kh" contenteditable="true" spellcheck="false" tabindex="0" data-k="loss-d" style="font-size:1.15rem;color:#36501b;font-weight:400;font-style:normal;text-align:left">Process loss – Daily</h3><div class="stile"><div><small>Latest</small><b>2.0%</b></div><div><small>Average</small><b>1.6%</b></div><div><small>Lowest</small><b>1.2%</b></div><div><small>Vs previous</small><b class="dn">▲ 33.3%</b></div></div><svg viewBox="0 0 600 210" role="img"><defs><filter id="gws"><fegaussianblur stdDeviation="2.5" result="b"></fegaussianblur><femerge><femergenode in="b"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter><lineargradient id="gfs0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ef4444" stop-opacity=".45"></stop><stop offset="1" stop-color="#ef4444" stop-opacity="0"></stop></lineargradient></defs><line x1="46" x2="588" y1="184" y2="184" class="gl"></line><text x="40" y="188" text-anchor="end" class="ax">0</text><line x1="46" x2="588" y1="141.5" y2="141.5" class="gl"></line><text x="40" y="145.5" text-anchor="end" class="ax">0.6</text><line x1="46" x2="588" y1="99" y2="99" class="gl"></line><text x="40" y="103" text-anchor="end" class="ax">1.1</text><line x1="46" x2="588" y1="56.5" y2="56.5" class="gl"></line><text x="40" y="60.5" text-anchor="end" class="ax">1.7</text><line x1="46" x2="588" y1="14" y2="14" class="gl"></line><text x="40" y="18" text-anchor="end" class="ax">2.2</text><text x="136.33333333333331" y="202" text-anchor="middle" class="ax">1 Oct</text><text x="317" y="202" text-anchor="middle" class="ax">2 Oct</text><text x="497.66666666666663" y="202" text-anchor="middle" class="ax">3 Oct</text><rect x="82.13333333333333" y="91.27272727272728" width="108.39999999999999" height="92.72727272727272" fill="url(#gfs0)" stroke="#ef4444" filter="url(#gws)"></rect><rect x="262.8" y="68.0909090909091" width="108.39999999999999" height="115.9090909090909" fill="url(#gfs0)" stroke="#ef4444" filter="url(#gws)"></rect><rect x="443.46666666666664" y="29.45454545454546" width="108.39999999999999" height="154.54545454545453" fill="url(#gfs0)" stroke="#ef4444" filter="url(#gws)"></rect></svg><table><tbody><tr><th>Period</th><th>Process loss</th></tr><tr><td>3 Oct</td><td>2.0%</td></tr><tr><td>2 Oct</td><td>1.5%</td></tr><tr><td>1 Oct</td><td>1.2%</td></tr></tbody></table></div></div>
+<details class="kent" open=""><summary>All entries</summary><div id="kent"><table><tbody><tr><th>Date</th><th>Loss %</th><th>Saving ₹</th><th>OEE %</th><th>Prod t</th><th>Target t</th><th></th></tr><tr><td>2026-10-03</td><td>2</td><td>0</td><td>34</td><td>222</td><td>220</td><td><button class="lnk" data-kdel="2026-10-03">Delete</button></td></tr><tr><td>2026-10-02</td><td>1.5</td><td>2343</td><td>51</td><td>185</td><td>220</td><td><button class="lnk" data-kdel="2026-10-02">Delete</button></td></tr><tr><td>2026-10-01</td><td>1.2</td><td>2222</td><td>45</td><td>199</td><td>220</td><td><button class="lnk" data-kdel="2026-10-01">Delete</button></td></tr></tbody></table></div></details>
+</section>
+<h2 class="sec">Project portfolio</h2>
+<section class="stats" id="stats" aria-label="Summary"><div class="stat "><b>1</b><span>Total</span></div><div class="stat "><b>1</b><span>Active</span></div><div class="stat "><b>0</b><span>Blocked</span></div><div class="stat late"><b>1</b><span>Overdue</span></div><div class="stat "><b>0</b><span>Done</span></div></section>
+<section class="overall"><div class="bar"><i id="ob" style="width: 0%;"></i></div><p id="ot">Overall progress 0%</p></section>
+<section class="board" id="board"><div class="col"><h2>Not started<em>0</em></h2><div class="empty">Nothing here yet.</div></div><div class="col"><h2>In progress<em>1</em></h2><article class="card p-high"><h3>Tipper unloading</h3>
+  <div class="due over">Overdue: 2026-10-16</div>
+  <input type="range" min="0" max="100" step="5" value="0" aria-label="Progress for Tipper unloading" data-pct="1792231969848">
+  <div class="row"><span class="due">0% done</span>
+  <select aria-label="Status" data-st="1792231969848"><option value="todo">Not started</option><option value="doing" selected="">In progress</option><option value="blocked">Blocked</option><option value="done">Done</option></select></div>
+  <div class="row"><button class="lnk" data-edit="1792231969848">Edit</button><button class="lnk" data-del="1792231969848">Delete</button></div></article></div><div class="col"><h2>Blocked<em>0</em></h2><div class="empty">Nothing here yet.</div></div><div class="col"><h2>Done<em>0</em></h2><div class="empty">Nothing here yet.</div></div></section>
+
+<dialog id="dlg">
+  <form method="dialog" id="f">
+    <h2 id="dt" style="margin:0">Add project</h2>
+    <label>Name<input id="n" required="" maxlength="80"></label>
+    <label>Notes<textarea id="no" rows="2" maxlength="300"></textarea></label>
+    <div class="two">
+      <label>Due date<input type="date" id="d"></label>
+      <label>Priority<select id="p"><option value="high">High</option><option value="med" selected="">Medium</option><option value="low">Low</option></select></label>
+    </div>
+    <label>Status<select id="s"><option value="todo">Not started</option><option value="doing">In progress</option><option value="blocked">Blocked</option><option value="done">Done</option></select></label>
+    <div class="actions"><button type="button" class="btn ghost" id="cx">Cancel</button><button class="btn" id="sv" type="submit">Save project</button></div>
+  </form>
+</dialog>
+</main>
+<script>
+const STATUS=[["todo","Not started"],["doing","In progress"],["blocked","Blocked"],["done","Done"]];
+const KEY="my-projects-v1";
+let items=[],editId=null;
+const $=id=>document.getElementById(id);
+try{items=JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){items=[]}
+if(!items.length){items=[{id:1792231969848,name:"Tipper unloading",notes:"",due:"2026-10-16",pri:"high",st:"doing",pct:0}]}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(items))}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+const today=()=>new Date().toISOString().slice(0,10);
+function render(){
+  const act=items.filter(i=>i.st!=="done");
+  const late=act.filter(i=>i.due&&i.due<today()).length;
+  const avg=items.length?Math.round(items.reduce((a,i)=>a+(i.st==="done"?100:i.pct),0)/items.length):0;
+  $("stats").innerHTML=[["Total",items.length,""],["Active",act.length,""],["Blocked",items.filter(i=>i.st==="blocked").length,""],["Overdue",late,late?"late":""],["Done",items.length-act.length,""]]
+    .map(([l,v,c])=>`<div class="stat ${c}"><b>${v}</b><span>${l}</span></div>`).join("");
+  $("ob").style.width=avg+"%";
+  $("ot").textContent=`Overall progress ${avg}%`;
+  $("board").innerHTML=STATUS.map(([k,label])=>{
+    const list=items.filter(i=>i.st===k);
+    return `<div class="col"><h2>${label}<em>${list.length}</em></h2>`+(list.length?list.map(card).join(""):`<div class="empty">Nothing here yet.</div>`)+`</div>`}).join("");
+}
+function card(i){
+  const over=i.due&&i.due<today()&&i.st!=="done";
+  return `<article class="card p-${i.pri}"><h3>${esc(i.name)}</h3>${i.notes?`<p>${esc(i.notes)}</p>`:""}
+  <div class="due ${over?"over":""}">${i.due?(over?"Overdue: ":"Due ")+i.due:"No due date"}</div>
+  <input type="range" min="0" max="100" step="5" value="${i.pct}" aria-label="Progress for ${esc(i.name)}" data-pct="${i.id}">
+  <div class="row"><span class="due">${i.pct}% done</span>
+  <select aria-label="Status" data-st="${i.id}">${STATUS.map(([k,l])=>`<option value="${k}" ${k===i.st?"selected":""}>${l}</option>`).join("")}</select></div>
+  <div class="row"><button class="lnk" data-edit="${i.id}">Edit</button><button class="lnk" data-del="${i.id}">Delete</button></div></article>`}
+$("board").addEventListener("change",e=>{
+  const t=e.target,id=+(t.dataset.pct||t.dataset.st);const it=items.find(x=>x.id===id);if(!it)return;
+  if(t.dataset.pct){it.pct=+t.value;if(it.pct===100)it.st="done"}
+  if(t.dataset.st){it.st=t.value;if(it.st==="done")it.pct=100}
+  save();render()});
+$("board").addEventListener("click",e=>{
+  const t=e.target;
+  if(t.dataset.del){const it=items.find(x=>x.id===+t.dataset.del);if(it&&confirm(`Delete “${it.name}”?`)){items=items.filter(x=>x!==it);save();render()}}
+  if(t.dataset.edit)openDlg(+t.dataset.edit)});
+$("s").innerHTML=STATUS.map(([k,l])=>`<option value="${k}">${l}</option>`).join("");
+function openDlg(id){
+  editId=id||null;const it=items.find(x=>x.id===id)||{name:"",notes:"",due:"",pri:"med",st:"todo"};
+  $("dt").textContent=id?"Edit project":"Add project";
+  $("n").value=it.name;$("no").value=it.notes;$("d").value=it.due;$("p").value=it.pri;$("s").value=it.st;
+  $("dlg").showModal();$("n").focus()}
+$("add").onclick=()=>openDlg();
+$("cx").onclick=()=>$("dlg").close();
+$("f").addEventListener("submit",()=>{
+  const v={name:$("n").value.trim(),notes:$("no").value.trim(),due:$("d").value,pri:$("p").value,st:$("s").value};
+  if(!v.name)return;
+  if(editId){const it=items.find(x=>x.id===editId);Object.assign(it,v);if(v.st==="done")it.pct=100}
+  else items.push({id:Date.now(),pct:v.st==="done"?100:0,...v});
+  save();render()});
+$("export").onclick=()=>{
+  const t=JSON.stringify(items,null,2);
+  const w=window.open("","_blank");
+  if(w){w.document.write("<pre>"+esc(t)+"</pre>")}else{prompt("Copy your backup:",t)}};
+/* ---- KPI section ---- */
+const KK="kpi-data-v1",KF="kpi-fmt-v1";
+let kdata=[],kfmt={},ksel=null;
+try{kdata=JSON.parse(localStorage.getItem(KK)||"[]")}catch(e){}
+try{kfmt=JSON.parse(localStorage.getItem(KF)||"{}")}catch(e){}
+if(!kdata.length)kdata=[{date:"2026-10-01",loss:"1.2",cost:"2222",oee:"45",prod:"199",tgt:"220"},{date:"2026-10-02",loss:"1.5",cost:"2343",oee:"51",prod:"185",tgt:"220"},{date:"2026-10-03",loss:"2",cost:"0",oee:"34",prod:"222",tgt:"220"}];
+const kSave=()=>{try{localStorage.setItem(KK,JSON.stringify(kdata));localStorage.setItem(KF,JSON.stringify(kfmt))}catch(e){}};
+const KM=[["loss","Process loss","%","avg"],["cost","Cost saving","₹","sum"],["oee","OEE","%","avg"],["prod","Production","t","sum"],["tgt","Daily target","t","sum"]];
+const KP=[["d","Daily",7],["w","Weekly",6],["m","Monthly",6]];
+const MN=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const iso=d=>d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+const pd=s=>new Date(s+"T00:00:00");
+const tgt=()=>+kfmt.target||220;
+function kkey(p,s){if(p==="d")return s;if(p==="m")return s.slice(0,7);const d=pd(s);d.setDate(d.getDate()-(d.getDay()+6)%7);return iso(d)}
+function klabel(p,k){if(p==="m"){const a=k.split("-");return MN[a[1]-1]+" "+a[0]}const d=pd(k),t=d.getDate()+" "+MN[d.getMonth()];return p==="w"?"Week of "+t:t}
+function ktarget(p,k){if(p==='m')return tgt();if(p==='d'){const e=kdata.find(x=>x.date===k),v=e?parseFloat(e.tgt):NaN;return isNaN(v)?0:v}return kdata.filter(e=>kkey('w',e.date)===k&&!isNaN(parseFloat(e.prod))).reduce((a,e)=>a+(parseFloat(e.tgt)||0),0)}
+function kgroup(m,p,n){const g={};kdata.forEach(e=>{const v=parseFloat(e[m[0]]);if(isNaN(v))return;const k=kkey(p,e.date);g[k]=g[k]||{s:0,n:0};g[k].s+=v;g[k].n++});return Object.keys(g).sort().slice(-n).map(k=>({k,v:m[3]==="avg"?g[k].s/g[k].n:g[k].s}))}
+const knum=(m,v)=>m[0]==="cost"?"₹"+Math.round(v).toLocaleString("en-IN"):v.toFixed(1)+(m[2]==="%"?"%":m[2]==="t"?" t":"");
+const kst=id=>{const f=kfmt[id]||{};return `font-size:${f.size||"1.15rem"};${f.color?"color:"+f.color+";":""}font-weight:${f.nb?400:700};font-style:${f.i?"italic":"normal"};text-align:${f.align||"left"}`};
+function kRender(){
+  $("ktgt").value=tgt();
+  const mk=iso(new Date()).slice(0,7),T=tgt();
+  const mt=kdata.filter(e=>e.date.slice(0,7)===mk).reduce((a,e)=>a+(parseFloat(e.prod)||0),0);
+  const pc=mt/T*100;
+  $("kmonth").innerHTML=`<b>This month: ${mt.toFixed(1)} t of ${T} t target (${Math.round(pc)}%)</b><div class="bar" style="margin:8px 0 4px"><i class="${pc<100?"under":""}" style="width:${Math.min(100,pc)}%"></i></div><span class="due">${mt>=T?"Target reached":(T-mt).toFixed(1)+" t remaining"}</span>`;
+  $("kcols").innerHTML=KM.map(m=>`<div class="msec"><div class="kgrid">`+KP.map(a=>{
+    const p=a[0],id=m[0]+"-"+p,rows=kgroup(m,p,a[2]),max=Math.max(...rows.map(r=>r.v),0.0001);
+    const hd=`<h3 class="kh" contenteditable="true" spellcheck="false" tabindex="0" data-k="${id}" style="${kst(id)}">${esc((kfmt[id]&&kfmt[id].t)||m[1]+" – "+a[1])}</h3>`;
+    const body=rows.length?rows.reverse().map(r=>{const t=m[0]==="prod"?ktarget(p,r.k):0,w=t?Math.min(100,r.v/t*100):r.v/max*100;
+      return `<div class="krow"><div class="kl"><span>${klabel(p,r.k)}</span><b>${knum(m,r.v)}</b></div><div class="bar"><i class="${t&&r.v<t?"under":""}" style="width:${w}%"></i></div>${t?`<small class="due">${Math.round(r.v/t*100)}% of ${t.toFixed(1)} t target</small>`:""}</div>`}).join(""):`<div class="empty">No data yet. Add a daily entry above.</div>`;
+    return `<div class="kcol">${hd}${body}</div>`}).join("")+`</div></div>`).join("");
+  const s=[...kdata].sort((a,b)=>b.date.localeCompare(a.date));
+  $("kent").innerHTML=s.length?`<table><tr><th>Date</th><th>Loss %</th><th>Saving ₹</th><th>OEE %</th><th>Prod t</th><th>Target t</th><th></th></tr>`+s.map(e=>`<tr><td>${e.date}</td><td>${e.loss||"–"}</td><td>${e.cost||"–"}</td><td>${e.oee||"–"}</td><td>${e.prod||"–"}</td><td>${e.tgt||"–"}</td><td><button class="lnk" data-kdel="${e.date}">Delete</button></td></tr>`).join("")+`</table>`:"<p class=\"due\">No entries yet.</p>";
+}
+$("kdate").value=iso(new Date());
+$("kfm").addEventListener("submit",e=>{e.preventDefault();const date=$("kdate").value;if(!date)return;const r={date};["loss","cost","oee","prod"].forEach(k=>r[k]=$("k"+k).value);r.tgt=$("kdtg").value;kdata=kdata.filter(x=>x.date!==date);kdata.push(r);kSave();kRender();["loss","cost","oee","prod"].forEach(k=>$("k"+k).value="")});
+$("ktgt").onchange=()=>{kfmt.target=+$("ktgt").value||220;kSave();kRender()};
+$("kent").addEventListener("click",e=>{const d=e.target.dataset.kdel;if(d){kdata=kdata.filter(x=>x.date!==d);kSave();kRender()}});
+$("kcols").addEventListener("focusin",e=>{const h=e.target.closest(".kh");if(!h)return;ksel=h.dataset.k;document.querySelectorAll(".kh.on").forEach(x=>x.classList.remove("on"));h.classList.add("on");const f=kfmt[ksel]||{};$("fs").value=f.size||"1.15rem";$("fa").value=f.align||"left"});
+$("kcols").addEventListener("input",e=>{const h=e.target.closest(".kh");if(h){(kfmt[h.dataset.k]=kfmt[h.dataset.k]||{}).t=h.textContent;kSave()}});
+$("kcols").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.closest(".kh")){e.preventDefault();e.target.blur()}});
+function kApply(fn){if(!ksel){alert("Click a header first, then choose a format.");return}const f=kfmt[ksel]=kfmt[ksel]||{};fn(f);kSave();const h=document.querySelector(`.kh[data-k="${ksel}"]`);if(h)h.setAttribute("style",kst(ksel))}
+$("fs").onchange=()=>kApply(f=>f.size=$("fs").value);
+$("fc").oninput=()=>kApply(f=>f.color=$("fc").value);
+$("fb").onclick=()=>kApply(f=>f.nb=!f.nb);
+$("fi").onclick=()=>kApply(f=>f.i=!f.i);
+$("fa").onchange=()=>kApply(f=>f.align=$("fa").value);
+$("fr").onclick=()=>{if(!ksel)return;const t=(kfmt[ksel]||{}).t;kfmt[ksel]=t?{t}:{};kSave();kRender()};
+const PAL={'#00e5ff':'#2563eb','#ffb300':'#f59e0b','#39ff9c':'#10b981','#b84dff':'#8b5cf6','#ff3d71':'#ef4444','#ff2bd6':'#ec4899'};
+/* ---- Analytics ---- */
+function chart(id,labels,series,o){
+ o=o||{};series.forEach(s=>{s.c=PAL[s.c]||s.c});const W=600,H=210,L=46,R=12,T=14,B=26,n=labels.length;
+ const all=[];series.forEach(s=>s.v.forEach(v=>{if(v!=null)all.push(v)}));
+ if(!n||!all.length)return `<div class='empty'>No data yet. Add daily entries above.</div>`;
+ let mx=Math.max(...all);if(mx<=0)mx=1;mx*=1.1;
+ const bw=(W-L-R)/n,x=i=>o.bars?L+bw*(i+.5):L+(n===1?(W-L-R)/2:i*(W-L-R)/(n-1)),y=v=>T+(H-T-B)*(1-v/mx),base=H-B;
+ const f=o.f||(v=>Math.round(v*10)/10);
+ let g=`<defs><filter id='gw${id}'><feGaussianBlur stdDeviation='2.5' result='b'/><feMerge><feMergeNode in='b'/><feMergeNode in='SourceGraphic'/></feMerge></filter>`;
+ series.forEach((s,si)=>{g+=`<linearGradient id='gf${id}${si}' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='${s.c}' stop-opacity='.45'/><stop offset='1' stop-color='${s.c}' stop-opacity='0'/></linearGradient>`});
+ g+='</defs>';
+ for(let k=0;k<=4;k++){const yy=y(mx*k/4);g+=`<line x1='${L}' x2='${W-R}' y1='${yy}' y2='${yy}' class='gl'/><text x='${L-6}' y='${yy+4}' text-anchor='end' class='ax'>${f(mx*k/4)}</text>`}
+ const step=Math.ceil(n/7);
+ labels.forEach((l,i)=>{if(i%step===0||i===n-1)g+=`<text x='${x(i)}' y='${H-8}' text-anchor='middle' class='ax'>${l}</text>`});
+ series.forEach((s,si)=>{
+  if(s.bar){s.v.forEach((v,i)=>{if(v!=null)g+=`<rect x='${x(i)-bw*.3}' y='${y(v)}' width='${bw*.6}' height='${base-y(v)}' fill='url(#gf${id}${si})' stroke='${s.c}' filter='url(#gw${id})'/>`});return}
+  let p='',pen=false,first=null,last=null;
+  s.v.forEach((a,i)=>{if(a==null){pen=false;return}p+=(pen?'L':'M')+x(i).toFixed(1)+' '+y(a).toFixed(1)+' ';pen=true;if(first==null)first=i;last=i});
+  if(!p)return;
+  if(s.fill)g+=`<path d='${p}L${x(last)} ${base} L${x(first)} ${base}Z' fill='url(#gf${id}${si})'/>`;
+  g+=`<path d='${p}' fill='none' stroke='${s.c}' stroke-width='2' filter='url(#gw${id})' ${s.dash?`stroke-dasharray='5 4'`:`class='ln' pathLength='1'`}/>`;
+  if(n<=31&&!s.dash)s.v.forEach((a,i)=>{if(a!=null)g+=`<circle cx='${x(i)}' cy='${y(a)}' r='2.6' fill='${s.c}'/>`});
+ });
+ return `<svg viewBox='0 0 ${W} ${H}' role='img'>${g}</svg>`}
+function ring(pct,label,val,sub,c){
+ c=PAL[c]||c;
+ const r=52,cf=2*Math.PI*r,p=Math.max(0,Math.min(100,pct||0));
+ return `<div class='gauge'><svg viewBox='0 0 130 130'><circle cx='65' cy='65' r='${r}' class='gt'/><circle cx='65' cy='65' r='${r}' class='gv' style='stroke:${c};stroke-dasharray:${cf*p/100} ${cf}' transform='rotate(-90 65 65)'/><circle cx='65' cy='65' r='38' class='gi'/><text x='65' y='71' text-anchor='middle' class='gn'>${val}</text></svg><b>${label}</b><small>${sub}</small></div>`}
+function vizRender(){
+ const D=[...kdata].sort((a,b)=>a.date.localeCompare(b.date)).slice(-30);
+ const col=k=>D.map(e=>{const v=parseFloat(e[k]);return isNaN(v)?null:v});
+ const av=a=>{const b=a.filter(v=>v!=null);return b.length?b.reduce((x,y)=>x+y,0)/b.length:null};
+ const tl=(a,n)=>a.filter(v=>v!=null).slice(-n);
+ const ma=a=>a.map((_,i)=>av(a.slice(Math.max(0,i-2),i+1)));
+ const lab=D.map(e=>{const d=pd(e.date);return d.getDate()+' '+MN[d.getMonth()]});
+ const prod=col('prod'),oee=col('oee'),loss=col('loss'),cost=col('cost'),T=tgt();
+ const now=new Date(),mk=iso(now).slice(0,7),dim=new Date(now.getFullYear(),now.getMonth()+1,0).getDate(),dn=now.getDate();
+ const me=kdata.filter(e=>e.date.slice(0,7)===mk);
+ const mtd=me.reduce((a,e)=>a+(parseFloat(e.prod)||0),0),mc=me.reduce((a,e)=>a+(parseFloat(e.cost)||0),0);
+ const proj=mtd/dn*dim;
+ const pp=prod.filter(v=>v!=null),p7=av(tl(prod,7)),prev=pp.length>7?av(pp.slice(-14,-7)):null;
+ const tr=p7!=null&&prev?(p7-prev)/prev*100:null,o7=av(tl(oee,7)),l7=av(tl(loss,7));
+ const F=(v,u,d)=>v==null?'–':v.toFixed(d===undefined?1:d)+(u||'');
+ const byDay={};me.forEach(e=>{byDay[+e.date.slice(8)]=parseFloat(e.prod)||0});
+ const lastDay=Math.max(0,...Object.keys(byDay).map(Number)),days=[...Array(dim)].map((_,i)=>i+1);
+ let c=0;const actual=days.map(d=>{c+=byDay[d]||0;return d<=lastDay?c:null}),ideal=days.map(d=>T*d/dim);
+ let s=0;const cum=cost.map(v=>{s+=v||0;return s});
+ const kf2=v=>v>=1e5?(v/1e5).toFixed(1)+'L':v>=1e3?Math.round(v/1e3)+'k':Math.round(v);
+ const pan=(t,sub,h)=>`<div class='pan'><h4>${t}</h4><small>${sub}</small>${h}</div>`;
+ $('kviz').innerHTML=
+  `<div class='gauges'>`+
+  ring(o7,'OEE, 7-day avg',F(o7,'%'),'Benchmark 85%','#00e5ff')+
+  ring(mtd/T*100,'Target attainment',Math.round(mtd/T*100)+'%',mtd.toFixed(1)+' of '+T+' t','#39ff9c')+
+  ring(proj/T*100,'Month-end forecast',Math.round(proj/T*100)+'%',proj.toFixed(0)+' t projected',proj>=T?'#39ff9c':'#ffb300')+
+  ring(l7==null?0:100-l7,'Process yield',l7==null?'–':F(100-l7,'%'),'Loss '+F(l7,'%'),'#b84dff')+
+  `</div><div class='tiles'>`+
+  `<div class='tile'><small>Avg daily output, 7 days</small><b>${F(p7,' t')}</b><span class='${tr==null?'':tr>=0?'up':'dn'}'>${tr==null?'Need 8+ days for trend':(tr>=0?'▲ ':'▼ ')+Math.abs(tr).toFixed(1)+'% vs previous week'}</span></div>`+
+  
+  
+  `<div class='tile'><small>Cost saved this month</small><b>₹${Math.round(mc).toLocaleString('en-IN')}</b></div>`+
+  `<div class='tile'><small>Plan status</small><b class='${proj>=T?'up':'dn'}'>${proj>=T?'On pace':'Behind plan'}</b></div>`+
+  `</div><div class='charts'>`+
+  pan('Production vs daily target','Bars: output in tons. Dashed: daily target.',chart('a',lab,[{v:prod,c:'#00e5ff',bar:1},{v:D.map(e=>ktarget('d',e.date)||null),c:'#ffb300',dash:1}],{bars:1}))+
+  pan('Month burn-up','Green: cumulative tons. Dashed: ideal pace to '+T+' t.',chart('b',days,[{v:ideal,c:'#ffb300',dash:1},{v:actual,c:'#39ff9c',fill:1}]))+
+  pan('OEE trend','Dashed: 85% world-class benchmark.',chart('c',lab,[{v:oee,c:'#00e5ff',fill:1},{v:oee.map(()=>85),c:'#ff2bd6',dash:1}]))+
+  pan('Process loss','Dashed: 3-day moving average. Lower is better.',chart('d',lab,[{v:loss,c:'#ff3d71',fill:1},{v:ma(loss),c:'#ffb300',dash:1}]))+
+  pan('Cumulative cost saving','Running total in rupees (k = thousand, L = lakh).',chart('e',lab,[{v:cum,c:'#b84dff',fill:1}],{f:kf2}))+
+  `</div>`;
+}
+/* ---- Single selector card ---- */
+let ksm=kfmt._m||'prod',ksp=kfmt._p||'d';
+function selRender(){
+ const m=KM.find(a=>a[0]===ksm)||KM[3],pr=KP.find(a=>a[0]===ksp)||KP[0],p=pr[0],id=m[0]+'-'+p;
+ const rows=kgroup(m,p,p==='d'?14:p==='w'?10:12);
+ const colr={loss:'#ff3d71',cost:'#b84dff',oee:'#00e5ff',prod:'#39ff9c',tgt:'#ffb300'}[m[0]];
+ const vals=rows.map(r=>r.v),labs=rows.map(r=>klabel(p,r.k)),isP=m[0]==='prod';
+ const tg=rows.map(r=>isP?(ktarget(p,r.k)||null):null);
+ const ser=[{v:vals,c:colr,bar:1}];
+ if(isP)ser.push({v:tg,c:'#ffb300',dash:1});
+ if(m[0]==='oee')ser.push({v:rows.map(()=>85),c:'#ff2bd6',dash:1});
+ const last=vals[vals.length-1],prv=vals[vals.length-2];
+ const avg=vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:null;
+ const best=vals.length?(m[0]==='loss'?Math.min(...vals):Math.max(...vals)):null;
+ const ch=last!=null&&prv?(last-prv)/prv*100:null;
+ const good=ch!=null&&(m[0]==='loss'?ch<=0:ch>=0);
+ const nf=v=>v==null?'\u2013':knum(m,v);
+ const kf3=v=>v>=1e5?(v/1e5).toFixed(1)+'L':v>=1e3?Math.round(v/1e3)+'k':Math.round(v);
+ const seg=(arr,cur,at)=>arr.map(a=>`<button type='button' class='seg${a[0]===cur?' on':''}' data-${at}='${a[0]}'>${a[1]}</button>`).join('');
+ const hd=`<h3 class='kh' contenteditable='true' spellcheck='false' tabindex='0' data-k='${id}' style='${kst(id)}'>${esc((kfmt[id]&&kfmt[id].t)||m[1]+' \u2013 '+pr[1])}</h3>`;
+ const tiles=`<div class='stile'><div><small>Latest</small><b>${nf(last)}</b></div><div><small>Average</small><b>${nf(avg)}</b></div><div><small>${m[0]==='loss'?'Lowest':'Best'}</small><b>${nf(best)}</b></div><div><small>Vs previous</small><b class='${ch==null?'':good?'up':'dn'}'>${ch==null?'\u2013':(ch>=0?'\u25b2 ':'\u25bc ')+Math.abs(ch).toFixed(1)+'%'}</b></div>${isP&&last!=null&&tg[tg.length-1]?`<div><small>Vs target</small><b class='${last>=tg[tg.length-1]?'up':'dn'}'>${Math.round(last/tg[tg.length-1]*100)}%</b></div>`:''}</div>`;
+ const tbl=rows.length?`<table><tr><th>Period</th><th>${m[1]}</th>${isP?'<th>Target</th><th>% of target</th>':''}</tr>`+[...rows].reverse().map((r,i)=>{const t=isP?ktarget(p,r.k):0;return `<tr><td>${klabel(p,r.k)}</td><td>${knum(m,r.v)}</td>${isP?`<td>${t?t.toFixed(1)+' t':'–'}</td><td>${t?Math.round(r.v/t*100)+'%':'–'}</td>`:''}</tr>`}).join('')+`</table>`:'';
+ $('kcols').innerHTML=`<div class='kcol selcard'><div class='segs'><div>${seg(KM,ksm,'m')}</div><div>${seg(KP,ksp,'p')}</div></div>${hd}${tiles}${chart('s',labs,ser,{bars:1,f:m[0]==='cost'?kf3:undefined})}${tbl}</div>`;
+}
+$('kcols').addEventListener('click',e=>{const b=e.target.closest('.seg');if(!b)return;if(b.dataset.m)ksm=kfmt._m=b.dataset.m;if(b.dataset.p)ksp=kfmt._p=b.dataset.p;kSave();selRender()});
+const _kr=kRender;kRender=function(){_kr();vizRender();selRender()};
+kRender();
+render();
+</script>
+
+
+<script>
+(function(){
+var HASH="a1cdf49186ce666608b33f89f76aaffd267ddaafb22baf62a7967326c6431dde";
+var locked=true,btn=document.getElementById("lockbtn");
+async function sha(t){var b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(t));return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join("")}
+function apply(){
+  document.body.classList.toggle("locked",locked);
+  document.querySelectorAll("[data-pct],[data-st]").forEach(function(e){e.disabled=locked});
+  document.querySelectorAll("[contenteditable]").forEach(function(e){e.setAttribute("contenteditable",locked?"false":"true")});
+  var label=locked?"\uD83D\uDD12 Unlock editing":"\uD83D\uDD13 Lock (read-only)";
+  if(btn.textContent!==label)btn.textContent=label;
+}
+document.addEventListener("click",function(e){if(locked&&e.target.closest&&e.target.closest("#add,[data-edit],[data-del],[data-kdel],#fb,#fi,#fr")){e.preventDefault();e.stopImmediatePropagation()}},true);
+document.addEventListener("submit",function(e){if(locked){e.preventDefault();e.stopImmediatePropagation()}},true);
+document.addEventListener("beforeinput",function(e){if(locked&&e.target.closest&&e.target.closest("[contenteditable]"))e.preventDefault()},true);
+btn.addEventListener("click",async function(){
+  if(!locked){locked=true;apply();return}
+  var pw=prompt("Enter password to enable editing:");
+  if(pw===null)return;
+  try{ if((await sha(pw))===HASH){locked=false;apply()} else alert("Wrong password") }catch(err){alert("Could not verify password in this browser.")}
+});
+new MutationObserver(apply).observe(document.querySelector("main"),{childList:true,subtree:true});
+apply();
+})();
+</script>
+</body></html>
